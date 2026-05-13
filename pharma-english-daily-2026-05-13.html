@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>📚 制药英语每日一词 | Stability 稳定性</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #2d3436;
+            background: #f8f9fa;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        /* ===== 头部 ===== */
+        .header {
+            text-align: center;
+            padding: 24px 16px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .header .title { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: 1px; }
+        .header .meta { font-size: 13px; opacity: 0.85; margin-bottom: 8px; }
+        .header .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 3px 12px; border-radius: 20px; font-size: 11px; }
+
+        /* ===== 核心卡片 ===== */
+        .word-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 24px 20px; border-radius: 14px; margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(102,126,234,0.25);
+        }
+        .word-card .word { font-size: 30px; font-weight: 700; margin-bottom: 8px; }
+        .word-card .phonetic { font-size: 14px; opacity: 0.85; margin-bottom: 10px; }
+        .word-card .pos { display: inline-block; background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 6px; font-size: 12px; margin-bottom: 10px; }
+        .word-card .def { font-size: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); line-height: 1.7; }
+
+        /* ===== 内容区块 ===== */
+        .section { background: white; border-radius: 10px; padding: 18px 16px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .section-title { font-size: 15px; font-weight: 600; color: #667eea; margin-bottom: 12px; display: flex; align-items: center; }
+        .section-title .icon { margin-right: 8px; font-size: 17px; }
+
+        /* ===== 例句/引用 ===== */
+        .example { background: #f8f9fa; border-left: 3px solid #667eea; padding: 12px 14px; border-radius: 0 8px 8px 0; margin-bottom: 12px; }
+        .example:last-child { margin-bottom: 0; }
+        .example-en { font-style: italic; font-size: 14px; color: #2d3436; margin-bottom: 6px; line-height: 1.7; }
+        .example-cn { font-size: 13px; color: #636e72; margin-bottom: 4px; }
+        .example-source { font-size: 11px; color: #b2bec3; padding-top: 4px; border-top: 1px dashed #e0e0e0; }
+
+        /* ===== 场景标签 ===== */
+        .scenario { background: #e8f4f8; border-radius: 8px; padding: 12px 14px; }
+        .scenario-tag { display: inline-block; background: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; margin: 3px 5px 3px 0; color: #2d3436; border: 1px solid #e0e0e0; }
+
+        /* ===== 进阶卡片 ===== */
+        .advanced { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+        .advanced:last-child { margin-bottom: 0; }
+        .advanced-label { font-size: 11px; opacity: 0.85; margin-bottom: 4px; }
+        .advanced-phrase { font-size: 16px; font-weight: 600; margin-bottom: 3px; }
+        .advanced-phonetic { font-size: 12px; opacity: 0.85; margin-bottom: 3px; }
+        .advanced-meaning { font-size: 13px; opacity: 0.9; }
+
+        /* ===== 相关列表 ===== */
+        .related { display: flex; flex-direction: column; gap: 8px; }
+        .related-item { background: #f8f9fa; padding: 10px 12px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; flex-wrap: wrap; }
+        .related-en { color: #667eea; font-weight: 500; }
+        .related-phonetic { color: #b2bec3; font-size: 11px; margin-left: 4px; }
+        .related-cn { color: #636e72; margin-left: 12px; }
+
+        /* ===== 词根词缀 ===== */
+        .etymology { background: #fef9e7; border-left: 3px solid #f39c12; padding: 12px 14px; border-radius: 0 8px 8px 0; }
+        .etymology-title { font-size: 12px; color: #d68910; margin-bottom: 5px; }
+        .etymology p { font-size: 13px; color: #2d3436; line-height: 1.8; }
+
+        /* ===== 分隔线 ===== */
+        .divider { height: 1px; background: linear-gradient(to right, transparent, #dfe6e9, transparent); margin: 20px 0; }
+
+        /* ===== 标签 ===== */
+        .tags { text-align: center; margin: 20px 0; }
+        .tag { display: inline-block; background: #f8f9fa; color: #667eea; padding: 4px 10px; border-radius: 12px; font-size: 12px; margin: 4px; }
+
+        /* ===== 学习提示 ===== */
+        .tip { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; padding: 14px 16px; margin-top: 16px; font-size: 13px; line-height: 1.8; }
+        .tip-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .tip li { margin-left: 16px; margin-bottom: 4px; }
+
+        /* ===== 结尾引导 ===== */
+        .ending { text-align: center; padding: 24px 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; margin-top: 20px; }
+        .ending-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .ending-desc { font-size: 13px; opacity: 0.85; line-height: 1.7; margin-bottom: 12px; }
+        .ending-arrow { font-size: 24px; }
+
+        /* ===== 底部 ===== */
+        .footer { text-align: center; padding: 20px 0; color: #b2bec3; font-size: 12px; }
+
+        /* ===== 发音辅助说明 ===== */
+        .pronunciation-note { 
+            background: #fff3cd; 
+            border: 1px solid #ffc107; 
+            border-radius: 8px; 
+            padding: 12px 14px; 
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: #856404;
+        }
+        .pronunciation-note .title { font-weight: 600; margin-bottom: 4px; }
+
+        /* ===== 手机适配 ===== */
+        @media (max-width: 480px) {
+            body { font-size: 15px; padding: 12px; }
+            .word-card .word { font-size: 26px; }
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- ===== 头部 ===== -->
+    <div class="header">
+        <h1 class="title">📚 制药英语每日一词</h1>
+        <p class="meta">2026年5月14日 · 第001期</p>
+        <span class="badge">GMP质量体系</span>
+    </div>
+
+    <!-- ===== 发音辅助说明 ===== -->
+    <div class="pronunciation-note">
+        <p class="title">🔊 发音说明</p>
+        <p>每个英文词汇均标注美式音标，长按复制后在词典APP中查询发音，或使用下方H5页面的发音功能。</p>
+    </div>
+
+    <!-- ===== 核心卡片 ===== -->
+    <div class="word-card">
+        <h2 class="word">Stability <span style="font-size:16px;opacity:0.8;">/stəˈbɪləti/</span></h2>
+        <span class="pos">noun 名词</span>
+        <div class="def"><strong>中文释义：</strong>稳定性 — 产品在规定条件下保持其属性（鉴别、含量、纯度）的能力</div>
+    </div>
+
+    <!-- ===== 例句 ===== -->
+    <div class="section">
+        <h3 class="section-title"><span class="icon">📝</span>英文例句</h3>
+        <div class="example">
+            <p class="example-en">"Stability <span class="related-phonetic">/stəˈbɪləti/</span> studies did not include all required test intervals <span class="related-phonetic">/ˈɪntərˌvælz/</span>."</p>
+            <p class="example-cn">稳定性研究未包含所有要求的检验时间点。</p>
+            <p class="example-source">📌 来源：FDA 483 Observation</p>
+        </div>
+        <div class="example">
+            <p class="example-en">"The drug product <span class="related-phonetic">/ˈdrʌɡ ˈprɑːdʌkt/</span> failed the stability test at the 24-month time point <span class="related-phonetic">/taɪm pɔɪnt/</span>."</p>
+            <p class="example-cn">该制剂产品在24个月时间点稳定性检验不合格。</p>
+            <p class="example-source">📌 来源：ICH Q1A(R2)</p>
+        </div>
+    </div>
+
+    <!-- ===== 常用场景 ===== -->
+    <div class="section">
+        <h3 class="section-title"><span class="icon">💼</span>常用场景</h3>
+        <div class="scenario">
+            <span class="scenario-tag">稳定性考察</span>
+            <span class="scenario-tag">有效期确定</span>
+            <span class="scenario-tag">储存条件研究</span>
+            <span class="scenario-tag">注册申报资料</span>
+            <span class="scenario-tag">产品放行决策</span>
+        </div>
+    </div>
+
+    <!-- ===== 进阶表达 ===== -->
+    <div class="section">
+        <h3 class="section-title"><span class="icon">🚀</span>进阶表达</h3>
+        <div class="advanced">
+            <p class="advanced-label">📌 稳定性考察箱</p>
+            <p class="advanced-phrase">Stability Chamber <span class="advanced-phonetic">/ˈstā-bəl-ə-tē ˈchām-bər/</span></p>
+            <p class="advanced-meaning">用于加速/长期稳定性研究的恒温恒湿箱</p>
+        </div>
+        <div class="advanced">
+            <p class="advanced-label">📌 有效期</p>
+            <p class="advanced-phrase">Shelf Life <span class="advanced-phonetic">/ʃelf laɪf/</span></p>
+            <p class="advanced-meaning">产品在规定储存条件下保持质量的期限</p>
+        </div>
+        <div class="advanced">
+            <p class="advanced-label">📌 加速稳定性</p>
+            <p class="advanced-phrase">Accelerated Stability <span class="advanced-phonetic">/əkˈseləreɪtɪd/</span></p>
+            <p class="advanced-meaning">在高于正常条件下进行的稳定性研究</p>
+        </div>
+        <div class="advanced">
+            <p class="advanced-label">📌 强制降解试验</p>
+            <p class="advanced-phrase">Stress Testing <span class="advanced-phonetic">/stres ˈtestɪŋ/</span></p>
+            <p class="advanced-meaning">评估药物降解途径的破坏性试验</p>
+        </div>
+    </div>
+
+    <!-- ===== 相关词汇 ===== -->
+    <div class="section">
+        <h3 class="section-title"><span class="icon">🔗</span>相关词汇</h3>
+        <div class="related">
+            <div class="related-item">
+                <span class="related-en">Stability Chamber</span>
+                <span class="related-phonetic">/stəˈbɪləti ˈtʃeɪmbər/</span>
+                <span class="related-cn">— 稳定性试验箱</span>
+            </div>
+            <div class="related-item">
+                <span class="related-en">Shelf Life</span>
+                <span class="related-phonetic">/ʃelf laɪf/</span>
+                <span class="related-cn">— 有效期</span>
+            </div>
+            <div class="related-item">
+                <span class="related-en">Accelerated Stability Study</span>
+                <span class="related-phonetic">/əkˈseləreɪtɪd/</span>
+                <span class="related-cn">— 加速稳定性研究</span>
+            </div>
+            <div class="related-item">
+                <span class="related-en">Stability-indicating Method</span>
+                <span class="related-phonetic">/ˈɪndɪkeɪtɪŋ/</span>
+                <span class="related-cn">— 稳定性指示方法</span>
+            </div>
+            <div class="related-item">
+                <span class="related-en">Stress Testing</span>
+                <span class="related-phonetic">/stres ˈtestɪŋ/</span>
+                <span class="related-cn">— 强制降解试验</span>
+            </div>
+            <div class="related-item">
+                <span class="related-en">Long-term Stability</span>
+                <span class="related-phonetic">/lɒŋ tɜːrm/</span>
+                <span class="related-cn">— 长期稳定性</span>
+            </div>
+            <div class="related-item">
+                <span class="related-en">Stability Data</span>
+                <span class="related-phonetic">/ˈdeɪtə/</span>
+                <span class="related-cn">— 稳定性数据</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 词根词缀 ===== -->
+    <div class="section">
+        <h3 class="section-title"><span class="icon">📖</span>词根词缀解析</h3>
+        <div class="etymology">
+            <p class="etymology-title">🔤 词素拆解</p>
+            <p><strong>Stable</strong> <span class="related-phonetic">/ˈsteɪbəl/</span>（形容词：稳定的）+ <strong>-ity</strong> <span class="related-phonetic">/ɪti/</span>（名词后缀，表性质/状态）<br>
+            → <strong>Stability</strong> <span class="related-phonetic">/stəˈbɪləti/</span> = 稳定性<br><br>
+            <em>同源词缀变化：</em><br>
+            stable → stability（稳定 → 稳定性）<br>
+            active → activity（活跃 → 活动性）<br>
+            possible → possibility（可能 → 可能性）</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== 标签 ===== -->
+    <div class="tags">
+        <span class="tag">#稳定性</span>
+        <span class="tag">#质量标准</span>
+        <span class="tag">#ICH指南</span>
+        <span class="tag">#GMP术语</span>
+    </div>
+
+    <!-- ===== 学习提示 ===== -->
+    <div class="tip">
+        <h4 class="tip-title">💡 学习提示</h4>
+        <ul>
+            <li><strong>Stability</strong> 是制药行业最核心的词汇之一，几乎所有注册申报都需要稳定性数据支持</li>
+            <li>记住 <strong>Stability Chamber</strong>（稳定性试验箱）这个组合词，在实验室场景经常使用</li>
+            <li>区分 <strong>Stability</strong>（长期稳定性）和 <strong>Stress Testing</strong>（强制降解试验）的适用场景</li>
+        </ul>
+    </div>
+
+    <!-- ===== 结尾引导 ===== -->
+    <div class="ending">
+        <h3 class="ending-title">🎓 完整学习</h3>
+        <p class="ending-desc"><a href="#top" style="color:#fff;text-decoration:underline;">点击「阅读原文」回到开头</a><br><span style="font-size:11px;opacity:0.7;">（含发音朗读功能）</span></p>
+        <p class="ending-arrow">👆</p>
+    </div>
+
+    <!-- ===== 底部 ===== -->
+    <div class="footer">
+        <p style="margin-top:4px;">制药英语每日一词</p>
+        <p style="margin-top:4px;">2026年5月14日 · 第001期</p>
+    </div>
+</body>
+</html>

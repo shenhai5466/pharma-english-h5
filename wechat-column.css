@@ -1,0 +1,305 @@
+/* ============================================================
+   制药英语每日一词 · 微信公众号排版 CSS
+   微信公众号文章专用，无需 JS，纯 CSS 实现
+   ============================================================ */
+
+/* --- 基础重置 --- */
+.pharma-article * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.pharma-article {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2d3436;
+    max-width: 100%;
+    padding: 12px;
+    background: #f8f9fa;
+}
+
+/* --- 标题栏（固定模板） --- */
+.pharma-header {
+    text-align: center;
+    padding: 24px 16px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.pharma-header .pharma-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.pharma-header .pharma-meta {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 8px;
+}
+
+.pharma-header .pharma-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+/* --- 词汇卡片（渐变紫色） --- */
+.pharma-wordcard {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 24px 20px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 20px rgba(102,126,234,0.25);
+}
+
+.pharma-wordcard .pharma-word {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.pharma-wordcard .pharma-phonetic {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 10px;
+}
+
+.pharma-wordcard .pharma-pos {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.pharma-wordcard .pharma-def {
+    font-size: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    line-height: 1.7;
+}
+
+/* --- 通用内容区块（白色卡片） --- */
+.pharma-section {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.pharma-section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- 例句（左侧紫色边线） --- */
+.pharma-example {
+    background: #f8f9fa;
+    border-left: 3px solid #667eea;
+    padding: 12px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+}
+
+.pharma-example:last-child {
+    margin-bottom: 0;
+}
+
+.pharma-example-en {
+    font-style: italic;
+    font-size: 14px;
+    color: #2d3436;
+    margin-bottom: 5px;
+    line-height: 1.7;
+}
+
+.pharma-example-cn {
+    font-size: 13px;
+    color: #636e72;
+    margin-bottom: 4px;
+}
+
+.pharma-example-source {
+    font-size: 11px;
+    color: #b2bec3;
+    padding-top: 4px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+/* --- 场景标签 --- */
+.pharma-scenario {
+    background: #e8f4f8;
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+.pharma-scenario-tag {
+    display: inline-block;
+    background: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 3px 5px 3px 0;
+    color: #2d3436;
+    border: 1px solid #e0e0e0;
+}
+
+/* --- 进阶卡片（渐变绿色） --- */
+.pharma-advanced {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+}
+
+.pharma-advanced:last-child {
+    margin-bottom: 0;
+}
+
+.pharma-advanced-label {
+    font-size: 11px;
+    opacity: 0.85;
+    margin-bottom: 4px;
+}
+
+.pharma-advanced-phrase {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.pharma-advanced-meaning {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* --- 相关词汇列表 --- */
+.pharma-related {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.pharma-related-item {
+    background: #f8f9fa;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pharma-related-en {
+    color: #667eea;
+    font-weight: 500;
+}
+
+.pharma-related-cn {
+    color: #636e72;
+    margin-left: 12px;
+}
+
+/* --- 词根词缀（黄色边线） --- */
+.pharma-etymology {
+    background: #fef9e7;
+    border-left: 3px solid #f39c12;
+    padding: 12px 14px;
+    border-radius: 0 8px 8px 0;
+}
+
+.pharma-etymology-title {
+    font-size: 12px;
+    color: #d68910;
+    margin-bottom: 5px;
+}
+
+.pharma-etymology p {
+    font-size: 13px;
+    color: #2d3436;
+    line-height: 1.8;
+}
+
+/* --- 底部标签 --- */
+.pharma-tags {
+    text-align: center;
+    margin: 20px 0 16px;
+}
+
+.pharma-tag {
+    display: inline-block;
+    background: #f8f9fa;
+    color: #667eea;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin: 4px;
+}
+
+/* --- 分隔线 --- */
+.pharma-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #dfe6e9, transparent);
+    margin: 20px 0;
+}
+
+/* --- 提示区块（渐变紫色） --- */
+.pharma-tip {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.pharma-tip-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* --- 结尾关注区 --- */
+.pharma-ending {
+    text-align: center;
+    padding: 24px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    margin-top: 16px;
+}
+
+.pharma-ending-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.pharma-ending-desc {
+    font-size: 13px;
+    opacity: 0.85;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.pharma-ending-arrow {
+    font-size: 24px;
+}

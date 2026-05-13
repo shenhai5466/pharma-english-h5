@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>制药英语每日一词 · 学习中心</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --border: #e0e0e0;
+            --text: #2d3436;
+            --sub: #636e72;
+            --primary-color: #667eea;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 100%;
+            padding: 16px;
+        }
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 36px 24px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 28px rgba(102, 126, 234, 0.3);
+        }
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 3px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-bottom: 12px;
+        }
+        .header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .section-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title .icon { margin-right: 8px; font-size: 18px; }
+        .episode-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .episode-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 18px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .episode-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+        }
+        .episode-card .ep-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .episode-card .ep-num {
+            background: var(--primary);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .episode-card .ep-date {
+            font-size: 12px;
+            color: var(--sub);
+        }
+        .episode-card .ep-word {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+        .episode-card .ep-cn {
+            font-size: 14px;
+            color: var(--sub);
+        }
+        .episode-card .ep-arrow {
+            float: right;
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-top: -30px;
+        }
+        .feature-bar {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .feature-item {
+            background: var(--bg);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+        }
+        .feature-item .icon { margin-right: 6px; }
+        .tips-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .tips-card h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        .tips-card li {
+            font-size: 13px;
+            margin-left: 16px;
+            margin-bottom: 4px;
+            opacity: 0.9;
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border), transparent);
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--sub);
+            font-size: 12px;
+        }
+        .footer .tag {
+            display: inline-block;
+            background: var(--bg);
+            color: var(--primary-color);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin: 4px;
+        }
+        .latest-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-left: 6px;
+        }
+        @media (max-width: 480px) {
+            .header { padding: 28px 18px; }
+            .header h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <div class="header">
+        <span class="badge">🎓 学习中心</span>
+        <h1>制药英语每日一词</h1>
+        <p>Pharmaceutical English Daily · 点击开始学习</p>
+    </div>
+
+    <!-- 功能说明 -->
+    <div class="feature-bar">
+        <div class="section-title"><span class="icon">✨</span>H5学习页面特色功能</div>
+        <div class="feature-list">
+            <div class="feature-item"><span class="icon">🔊</span>点击发音</div>
+            <div class="feature-item"><span class="icon">📖</span>整句朗读</div>
+            <div class="feature-item"><span class="icon">🔄</span>循环播放</div>
+            <div class="feature-item"><span class="icon">📱</span>移动端适配</div>
+        </div>
+    </div>
+
+    <!-- 最新一期 -->
+    <div class="section-title"><span class="icon">🆕</span>最新内容</div>
+    <div class="episode-grid">
+        <a class="episode-card" href="episode/episode-001-deviation.html">
+            <div class="ep-header">
+                <span class="ep-num">第001期</span>
+                <span class="ep-date">2026-05-13</span>
+                <span class="latest-badge">NEW</span>
+            </div>
+            <div class="ep-word">Deviation</div>
+            <div class="ep-cn">偏差 · 与已批准程序或预期标准的偏离</div>
+            <span class="ep-arrow">→</span>
+        </a>
+    </div>
+
+    <!-- 往期目录 -->
+    <div class="section-title"><span class="icon">📚</span>往期目录</div>
+    <div class="episode-grid">
+        <a class="episode-card" href="episode/episode-001-deviation.html">
+            <div class="ep-header">
+                <span class="ep-num">第001期</span>
+                <span class="ep-date">2026-05-13</span>
+            </div>
+            <div class="ep-word">Deviation</div>
+            <div class="ep-cn">偏差 · deviation investigation · CAPA</div>
+            <span class="ep-arrow">→</span>
+        </a>
+    </div>
+
+    <!-- 学习提示 -->
+    <div class="tips-card">
+        <h3>💡 学习方法</h3>
+        <ul>
+            <li>点击每个🔊按钮，跟读3遍</li>
+            <li>注意固定搭配，如 deviation investigation</li>
+            <li>区分 Critical Deviation vs Major/Minor</li>
+            <li>配合相关词汇 OOS、OOT、CAPA 一起记忆</li>
+        </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 标签 -->
+    <div style="text-align:center;">
+        <span class="tag">#偏差管理</span>
+        <span class="tag">#GMP术语</span>
+        <span class="tag">#质量体系</span>
+        <span class="tag">#FDA</span>
+        <span class="tag">#制药英语</span>
+    </div>
+
+    <div class="footer">
+        <p>制药英语每日一词 · 学习中心</p>
+        <p style="margin-top:6px;">每个工作日早8:00 更新</p>
+    </div>
+</body>
+</html>

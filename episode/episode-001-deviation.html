@@ -112,7 +112,7 @@
     <div class="header">
         <a class="back-link" href="../">← 返回学习中心</a>
         <h2>📚 制药英语每日一词</h2>
-        <p class="date">2026年5月13日 · 周二</p>
+        <p class="date">2026年5月15日 · 周四</p>
         <span class="issue">第001期</span>
     </div>
     <div class="word-card">
@@ -210,6 +210,29 @@
         <p style="margin-top:16px;color:#b2bec3;font-size:11px;">制药英语每日一词 · 第001期</p>
     </div>
     <script>
+    // 数字转英文单词映射（解决中文语音读出数字的问题）
+    var numWords = {
+        0:'zero',1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',
+        10:'ten',11:'eleven',12:'twelve',13:'thirteen',14:'fourteen',15:'fifteen',16:'sixteen',
+        17:'seventeen',18:'eighteen',19:'nineteen',20:'twenty',21:'twenty-one',22:'twenty-two',
+        23:'twenty-three',24:'twenty-four',25:'twenty-five',26:'twenty-six',27:'twenty-seven',
+        28:'twenty-eight',29:'twenty-nine',30:'thirty',31:'thirty-one',32:'thirty-two',
+        33:'thirty-three',34:'thirty-four',35:'thirty-five',36:'thirty-six'
+    };
+    function preprocessText(text) {
+        // 将数字转为英文单词
+        text = text.replace(/\b(\d{1,2})\b/g, function(m, n) {
+            return numWords[n] || m;
+        });
+        // 将月份数字转为英文
+        text = text.replace(/\b01\b/g, 'January').replace(/\b02\b/g, 'February')
+                   .replace(/\b03\b/g, 'March').replace(/\b04\b/g, 'April')
+                   .replace(/\b05\b/g, 'May').replace(/\b06\b/g, 'June')
+                   .replace(/\b07\b/g, 'July').replace(/\b08\b/g, 'August')
+                   .replace(/\b09\b/g, 'September').replace(/\b10\b/g, 'October')
+                   .replace(/\b11\b/g, 'November').replace(/\b12\b/g, 'December');
+        return text;
+    }
     function speak(text, btn) {
         if (btn) {
             btn.classList.add('speaking');
@@ -217,8 +240,13 @@
             btn.textContent = '🔊 播放中...';
             setTimeout(function() { btn.classList.remove('speaking'); btn.textContent = orig; }, Math.max(1500, text.length * 60));
         }
-        var utt = new SpeechSynthesisUtterance(text);
-        utt.lang = 'en-US'; utt.rate = 0.85; utt.pitch = 1.0; utt.volume = 1.0;
+        // 预处理文本：数字转英文
+        var processedText = preprocessText(text);
+        var utt = new SpeechSynthesisUtterance(processedText);
+        utt.lang = 'en-US';
+        utt.rate = 0.82;      // 稍慢，更清晰
+        utt.pitch = 1.05;     // 轻微提升语调，更自然
+        utt.volume = 1.0;
         var voices = speechSynthesis.getVoices(), usVoice = null;
         for (var i = 0; i < voices.length; i++) {
             if (voices[i].lang.indexOf('en') > -1 && voices[i].lang.indexOf('US') > -1) { usVoice = voices[i]; break; }
